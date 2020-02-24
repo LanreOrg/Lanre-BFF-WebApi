@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build-env
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
-COPY Src/BFFs/Lanre.Bffs.Web.Api/*.csproj ./
+COPY Src/BFFs/Lanre-BFF-WebApi/Lanre.Bffs.Web.Api/*.csproj ./
 RUN dotnet restore
 
 # Copy everything else and build
-COPY Src/BFFs/Lanre.Bffs.Web.Api ./
+COPY Src/BFFs/Lanre-BFF-WebApi/Lanre.Bffs.Web.Api ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
